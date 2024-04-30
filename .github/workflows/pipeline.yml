@@ -104,10 +104,8 @@ jobs:
           fetch-depth: 0
       - name: Deploy to Heroku
         if: ${{ github.event_name == 'push' }}
-        uses: akhileshns/heroku-deploy@v3.12.12
+        uses: bervProject/railway-deploy@main
         with:
-          heroku_api_key: ${{secrets.HEROKU_API_KEY}}
-          heroku_app_name: ${{secrets.HEROKU_APP}}
-          heroku_email: ${{secrets.HEROKU_API_EMAIL}}
-          healthcheck: "https://${{secrets.HEROKU_APP}}.herokuapp.com/health"
-          rollbackonhealthcheckfailed: true
+          railway_token: a448e7ca-2a73-4452-8fc2-9800636499c0
+          service: "ci-test"
+      
